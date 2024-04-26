@@ -5,7 +5,7 @@
 //#include <GLFW/glfw3.h>
 
 int main () {
-    Window window;
+
 
     return 0;
 }

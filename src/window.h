@@ -19,48 +19,29 @@ protected:
     // ---------- Atributes ----------
     // Window
     GLFWwindow* window;
-    // Monitor <- MOVE TO FULLSCREEN
-    GLFWmonitor* monitor;
-    // Video mode of the monitor <- MOVE TO FULLSCREEN
-    struct CustomVidMode* vidmode;
 
     // ---------- Functions ----------
-    // Get the primary monitor <- MOVE TO FULLSCREEN
-    void initMonitor ();
-    // Generate the vidmode for the window <- MOVE TO FULLSCREEN
-    void initVidMode ();
-    // Update window parameters
-    virtual void updateWindowParams ();
+    // Initialise the window variable
+    // Param: title
+    virtual void initWindow (char*);
     // Init the window hints
     virtual void initWindowHints ();
     // Load GLAD
     void loadGLAD ();
 public:
-    // Create the window obj
-    // Param: width, height
-    Window (int,int);
-    // Create fullscreen window with monitor specs
-    Window ();
-    // Deconstructor to destroy window
-    ~Window ();
-    // Change the refresh rate
-    // Param: refreshRate
-    void setRefreshRate (int refreshRate); // <- Fullscreen
-    // Get the refresh rate
-    // Return: refreshRate
-    int getRefreshRate (); // <- Fullscreen
+    Window();
     // Set the width and height
     // Param: width, height
-    void setResolution (int,int);
+    virtual void setResolution (int,int);
     // Get the width of the window
     // Return: width
-    int getWidth ();
+    virtual int getWidth ();
     // Get the height of the window
     // Return: height
-    int getHeight();
+    virtual int getHeight();
     // Create the window
     // Param: title
-    void createWindow (char*);
+    virtual void createWindow ();
     // Destroy the window
     void destroyWindow ();
 };
@@ -75,27 +56,63 @@ struct CustomVidMode {
     int refreshRate;
 };
 
+void frameBufferSizeCallback (GLFWwindow*,int,int);
+
 // Child class for windowed windows
 class WindowedWindow : public Window {
 private:
     // Width and height of the window
     int width, height;
+    // Initialise the window var
+    // Param: title
+    void initWindow (char*);
+    // Set the window hints
+    void initWindowHints ();
 public:
     // Constructor to set up window
+    // Param: width, height, title
+    WindowedWindow (int,int,char*);
+    // Set the resolution of the window
     // Param: width, height
-    WindowedWindow (int,int);
-}
+    void setResolution (int,int);
+    // Get the width of the window
+    // Return: width
+    int getWidth ();
+    // Get the height of the window
+    // Return: height
+    int getHeight ();
+    void createWindow();
+};
 
 // Child class for fullscreen windows
 class FullscreenWindow : public Window {
 private:
-    // GLFWwindow object - holds the window
-    GLFWwindow* window;
     // GLFWmonitor object - holds monitor info
     GLFWmonitor* monitor;
+    // Width and height of the window
+    int width, height;
+    // Initialise the monitor
+    void initMonitor ();
+    // Initialise the window
+    // Param: title 
+    void initWindow (char*);
+    // Set the window hints
+    void initWindowHints ();
 public:
     // Constructor to set up window
-    FullscreenWindow ();
-}
+    // Param: width, height, title
+    FullscreenWindow (int,int,char*);
+    // Set the resolution of the window
+    // Param: width, height
+    void setResolution (int,int);
+    // Get the width of the window
+    // Return: width
+    int getWidth ();
+    // Get the height of the window
+    // Return: height
+    int getHeight ();
+    // Creates the window
+    void createWindow ();
+};
 
 #endif
