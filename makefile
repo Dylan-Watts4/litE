@@ -1,18 +1,16 @@
 CC = g++
-FLAGS = -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi
+FLAGS = -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi -lglfw
 
-test:
-	$(CC) $(FLAGS) -o ./bin/test test.o window.o glad.o
+GLFW = 
 
-test.o: window.h
-	$(CC) $(FLAGS) -c test.cpp
+SRC := $(wildcard ./src/*.cpp ./src/*.c)
+BIN = ./bin/
 
-window.o: window.h ./include/glad/glad.h
-
-glad.o: 
+build: $(SRC)
+	$(CC) $(FLAGS) $(SRC) -o $(BIN)test
 
 run:
-	./bin/test
+	$(BIN)test
 
 clean:
 	rm ./bin/test

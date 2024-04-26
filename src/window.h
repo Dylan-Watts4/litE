@@ -18,7 +18,7 @@ class Window {
 protected:
     // ---------- Atributes ----------
     // Window
-    GLFWwindow* window;
+    GLFWwindow* window = NULL;
 
     // ---------- Functions ----------
     // Initialise the window variable
@@ -29,7 +29,7 @@ protected:
     // Load GLAD
     void loadGLAD ();
 public:
-    Window();
+    Window ();
     // Set the width and height
     // Param: width, height
     virtual void setResolution (int,int);

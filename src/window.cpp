@@ -13,11 +13,19 @@ void Window::destroyWindow () {
     glfwDestroyWindow(window);
 }
 
+void Window::setResolution (int width, int height) {}
+int Window::getWidth () {return 1;}
+int Window::getHeight () {return 1;}
+void Window::createWindow () {}
+
 // ---------- Protected ----------
 
 void Window::loadGLAD () {
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 }
+
+void initWindow (char* title) {}
+void initWindowHints () {}
 
 // ---------- Windowed ----------
 // ---------- Public ----------
