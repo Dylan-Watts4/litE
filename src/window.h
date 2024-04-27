@@ -18,7 +18,7 @@ class Window {
 protected:
     // ---------- Atributes ----------
     // Window
-    GLFWwindow* window = NULL;
+    GLFWwindow* window;
 
     // ---------- Functions ----------
     // Initialise the window variable

@@ -3,42 +3,48 @@
 // ---------- Fullscreen ----------
 // ---------- Public ----------
 
-FullscreenWindow::FullscreenWindow (int width, int height, char* title) {
+Fullscreen::Fullscreen (int width, int height, char* title) {
     this->width = width;
     this->height = height;
     initMonitor();
     initWindow(title);
 }
 
-void FullscreenWindow::setResolution (int width, int height) {
+Fullscreen::~Fullscreen () {
+    // Destroy objs
+    delete window;
+    delete monitor;
+}
+
+void Fullscreen::setResolution (int width, int height) {
     this->width = width;
     this->height = height;
 }
 
-int FullscreenWindow::getWidth () {
+int Fullscreen::getWidth () {
     return this->width;
 }
 
-int FullscreenWindow::getHeight () {
+int Fullscreen::getHeight () {
     return this->height;
 }
 
-void FullscreenWindow::createWindow () {
+void Fullscreen::createWindow () {
     loadGLAD();
 }
 
 // ---------- Private ----------
 
-void FullscreenWindow::initMonitor () {
+void Fullscreen::initMonitor () {
     monitor = glfwGetPrimaryMonitor();
 }
 
-void FullscreenWindow::initWindow (char* title) {
+void Fullscreen::initWindow (char* title) {
     initWindowHints();
     window = glfwCreateWindow (width, height, title, monitor, NULL);
     glfwMakeContextCurrent(window);
 }
 
-void FullscreenWindow::initWindowHints () {
+void Fullscreen::initWindowHints () {
 
 }

@@ -1,4 +1,5 @@
 #include "windowed.h"
+#include <iostream>
 
 // ---------- Windowed ----------
 // ---------- Public ----------
@@ -7,6 +8,11 @@ Windowed::Windowed (int width, int height, char* title) {
     this->width = width;
     this->height = height;
     initWindow(title);
+}
+
+Windowed::~Windowed () {
+    // Destroy objs
+    delete window;
 }
 
 void Windowed::setResolution (int width, int height) {
@@ -24,12 +30,15 @@ int Windowed::getHeight () {
 
 void Windowed::createWindow () {
     loadGLAD();
-    glViewport(0, 0, width, height);
-    glfwSetFramebufferSizeCallback(window, frameBufferSizeCallback);
-    while (!glfwWindowShouldClose(window)) {
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
+    if (window == NULL) std::cout << "Window == NULL" << std::endl;
+    // The above states that window is NULL
+    
+    //glViewport(0, 0, width, height); // <-- Segmentation fault
+    //glfwSetFramebufferSizeCallback(window, frameBufferSizeCallback);
+    //while (!glfwWindowShouldClose(window)) {
+        //glfwSwapBuffers(window);
+        //glfwPollEvents();
+    //}
 }
 
 // ---------- Private ----------

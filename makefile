@@ -1,9 +1,9 @@
 CC = g++
-FLAGS = -Wall -Wextra -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi -lglfw
+FLAGS = -Wall -Wextra -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi -lglfw -L
 
 GLFW = 
 
-SRC := $(wildcard ./src/*.cpp ./src/*.c)
+SRC := $(wildcard ./src/*.cpp ./src/*.c ./src/*.h)
 BIN = ./bin/
 
 build: $(SRC)

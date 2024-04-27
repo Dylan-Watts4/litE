@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 
 // Child class for fullscreen windows
-class FullscreenWindow : public Window {
+class Fullscreen : public Window {
 private:
     // GLFWmonitor object - holds monitor info
     GLFWmonitor* monitor;
@@ -21,7 +21,9 @@ private:
 public:
     // Constructor to set up window
     // Param: width, height, title
-    FullscreenWindow (int,int,char*);
+    Fullscreen (int,int,char*);
+    // Destroyer
+    ~Fullscreen ();
     // Set the resolution of the window
     // Param: width, height
     void setResolution (int,int);

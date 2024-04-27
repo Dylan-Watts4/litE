@@ -5,10 +5,8 @@
 //#include <GLFW/glfw3.h>
 
 int main () {
-    char title[] = "Test";
-    Windowed* window = new Windowed(800,600,title);
-    window->createWindow();
-    window->destroyWindow();
-    delete window;
+    int x = 1 + 1;
+    Windowed window(700,700,"GG");
+    window.createWindow();
     return 0;
 }

@@ -20,6 +20,8 @@ public:
     // Constructor to set up window
     // Param: width, height, title
     Windowed (int,int,char*);
+    // Destoryer
+    ~Windowed ();
     // Set the resolution of the window
     // Param: width, height
     void setResolution (int,int);
