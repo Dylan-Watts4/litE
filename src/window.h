@@ -10,6 +10,8 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <functional>
+
 #include "../include/glad/glad.h"
 #include <GLFW/glfw3.h>
 
@@ -19,7 +21,8 @@ protected:
     // ---------- Atributes ----------
     // Window
     GLFWwindow* window;
-
+    // Render function
+    std::function<void(GLFWwindow*)> render;
     // ---------- Functions ----------
     // Initialise the window variable
     // Param: title
@@ -38,7 +41,10 @@ public:
     virtual int getWidth ();
     // Get the height of the window
     // Return: height
-    virtual int getHeight();
+    virtual int getHeight ();
+    // Set the render function
+    // Param: std::function<void(GLFWwindow*)> render
+    virtual void setRender (std::function<void(GLFWwindow*)>);
     // Create the window
     // Param: title
     virtual void createWindow ();

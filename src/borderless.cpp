@@ -16,10 +16,15 @@ Borderless::~Borderless () {
     delete mode;
 }
 
+void Borderless::setRender (std::function<void(GLFWwindow*)> r) {
+    render = r;
+}
+
 void Borderless::createWindow () {
     loadGLAD();
     glViewport(0, 0, mode->width, mode->height);
     while (!glfwWindowShouldClose(window)) {
+        render(window);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

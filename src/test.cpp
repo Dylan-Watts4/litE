@@ -1,11 +1,17 @@
-#include "borderless.h"
+#include "windowed.h"
+#include <iostream>
+#include <functional>
 
-//#include "../include/glad/glad.h"
-//#include "glad.c"
-//#include <GLFW/glfw3.h>
+// Needs to be defined above main
+void render (GLFWwindow* w) {
+    // Do stuff
+    std::cout << "A";
+}
 
 int main () {
-    Borderless window("Test");
+    Windowed window(600,600,"Test");
+    std::function<void(GLFWwindow*)> r = render;
+    window.setRender(r);
     window.createWindow();
     return 0;
 }
