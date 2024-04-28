@@ -1,11 +1,11 @@
-#include "fullscreen.h"
+#include "borderless.h"
 
 //#include "../include/glad/glad.h"
 //#include "glad.c"
 //#include <GLFW/glfw3.h>
 
 int main () {
-    Fullscreen window(640,480,"Test");
+    Borderless window("Test");
     window.createWindow();
     return 0;
 }
