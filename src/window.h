@@ -21,8 +21,10 @@ protected:
     // ---------- Atributes ----------
     // Window
     GLFWwindow* window;
+    // Input function
+    std::function<void(GLFWwindow*)> processInput;
     // Render function
-    std::function<void(GLFWwindow*)> render; // Could remove pointer and use internal var
+    std::function<void(GLFWwindow*)> render;
     // ---------- Functions ----------
     // Initialise the window variable
     // Param: title
@@ -45,9 +47,12 @@ public:
     // Get the height of the window
     // Return: height
     virtual int getHeight ();
+    // Set the processInput function
+    // Param: std::function<void(GLFWwindow*)> processInput
+    void setProcessInput (std::function<void(GLFWwindow*)>);
     // Set the render function
     // Param: std::function<void(GLFWwindow*)> render
-    virtual void setRender (std::function<void(GLFWwindow*)>);
+    void setRender (std::function<void(GLFWwindow*)>);
     // Set a glfw hint, just easier :)
     // Param: hint, value
     void setHint (int,int);

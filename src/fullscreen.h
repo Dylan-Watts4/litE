@@ -33,8 +33,6 @@ public:
     // Get the height of the window
     // Return: height
     int getHeight ();
-    // Set the render function
-    void setRender (std::function<void(GLFWwindow*)>);
     // Creates the window
     void createWindow ();
 };

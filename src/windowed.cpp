@@ -29,15 +29,12 @@ int Windowed::getHeight () {
     return this->height;
 }
 
-void Windowed::setRender (std::function<void(GLFWwindow*)> r) {
-    render = r;
-}
-
 void Windowed::createWindow () {
     loadGLAD();
     glViewport(0, 0, width, height);
     glfwSetFramebufferSizeCallback(window, frameBufferSizeCallback);
     while (!glfwWindowShouldClose(window)) {
+        processInput(window);
         render(window);
         glfwSwapBuffers(window);
         glfwPollEvents();

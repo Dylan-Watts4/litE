@@ -37,7 +37,15 @@ void Window::show () {
 void Window::setResolution () {}
 int Window::getWidth () {return 1;}
 int Window::getHeight () {return 1;}
-void Window::setRender (std::function<void(GLFWwindow*)> r) {}
+
+void Window::setProcessInput (std::function<void(GLFWwindow*)> p) {
+    processInput = p;
+}
+
+void Window::setRender (std::function<void(GLFWwindow*)> r) {
+    render = r;
+}
+
 void Window::createWindow () {}
 
 // ---------- Protected ----------

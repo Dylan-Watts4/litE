@@ -25,8 +25,6 @@ public:
     Borderless (char*);
     // Destroyer
     ~Borderless ();
-    // Set render function
-    void setRender (std::function<void(GLFWwindow*)>);
     // Create the window
     void createWindow ();
 };

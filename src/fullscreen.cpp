@@ -30,14 +30,11 @@ int Fullscreen::getHeight () {
     return this->height;
 }
 
-void Fullscreen::setRender (std::function<void(GLFWwindow*)> r) {
-    render = r;
-}
-
 void Fullscreen::createWindow () {
     loadGLAD();
     glViewport(0, 0, width, height);
     while (!glfwWindowShouldClose(window)) {
+        processInput(window);
         render(window);
         glfwSwapBuffers(window);
         glfwPollEvents();

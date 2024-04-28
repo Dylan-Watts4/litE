@@ -8,6 +8,11 @@ void render (GLFWwindow* w) {
     std::cout << "A";
 }
 
+void processInput (GLFWwindow* w) {
+    if (glfwGetKey(w, GLFW_KEY_ESCAPE) == GLFW_PRESS) 
+        glfwSetWindowShouldClose(w, true);
+}
+
 // Close call back function
 void close_callback (GLFWwindow* window) {
     std::cout << "You tried closing" << std::endl;
@@ -19,6 +24,8 @@ int main () {
     glfwSetWindowCloseCallback(window.getWindow(), close_callback);
     // Set a window attribute (Maybe make this into a function)
     window.setAttribute(window.getWindow(), GLFW_RESIZABLE, GLFW_FALSE);
+    std::function<void(GLFWwindow*)> p = processInput;
+    window.setProcessInput(p);
     std::function<void(GLFWwindow*)> r = render;
     window.setRender(r);
     window.createWindow();
