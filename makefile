@@ -1,5 +1,5 @@
 CC = g++
-FLAGS = -Wall -Wextra -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi -lglfw -L
+FLAGS = -Wall -Wextra -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi -lglfw
 
 GLFW = 
 

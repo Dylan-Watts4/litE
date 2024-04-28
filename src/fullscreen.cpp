@@ -6,6 +6,7 @@
 Fullscreen::Fullscreen (int width, int height, char* title) {
     this->width = width;
     this->height = height;
+    glfwInit();
     initMonitor();
     initWindow(title);
 }

@@ -7,6 +7,7 @@
 Windowed::Windowed (int width, int height, char* title) {
     this->width = width;
     this->height = height;
+    glfwInit();
     initWindow(title);
 }
 
@@ -33,12 +34,12 @@ void Windowed::createWindow () {
     if (window == NULL) std::cout << "Window == NULL" << std::endl;
     // The above states that window is NULL
     
-    //glViewport(0, 0, width, height); // <-- Segmentation fault
-    //glfwSetFramebufferSizeCallback(window, frameBufferSizeCallback);
-    //while (!glfwWindowShouldClose(window)) {
-        //glfwSwapBuffers(window);
-        //glfwPollEvents();
-    //}
+    glViewport(0, 0, width, height); // <-- Segmentation fault
+    glfwSetFramebufferSizeCallback(window, frameBufferSizeCallback);
+    while (!glfwWindowShouldClose(window)) {
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
 }
 
 // ---------- Private ----------
