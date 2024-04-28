@@ -32,6 +32,11 @@ int Fullscreen::getHeight () {
 
 void Fullscreen::createWindow () {
     loadGLAD();
+    glViewport(0, 0, width, height);
+    while (!glfwWindowShouldClose(window)) {
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
 }
 
 // ---------- Private ----------

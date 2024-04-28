@@ -1,11 +1,11 @@
-#include "windowed.h"
+#include "fullscreen.h"
 
 //#include "../include/glad/glad.h"
 //#include "glad.c"
 //#include <GLFW/glfw3.h>
 
 int main () {
-    Windowed window(700,700,"Test");
+    Fullscreen window(640,480,"Test");
     window.createWindow();
     return 0;
 }

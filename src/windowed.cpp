@@ -31,9 +31,6 @@ int Windowed::getHeight () {
 
 void Windowed::createWindow () {
     loadGLAD();
-    if (window == NULL) std::cout << "Window == NULL" << std::endl;
-    // The above states that window is NULL
-    
     glViewport(0, 0, width, height); // <-- Segmentation fault
     glfwSetFramebufferSizeCallback(window, frameBufferSizeCallback);
     while (!glfwWindowShouldClose(window)) {
