@@ -22,7 +22,7 @@ protected:
     // Window
     GLFWwindow* window;
     // Render function
-    std::function<void(GLFWwindow*)> render;
+    std::function<void(GLFWwindow*)> render; // Could remove pointer and use internal var
     // ---------- Functions ----------
     // Initialise the window variable
     // Param: title
@@ -48,9 +48,19 @@ public:
     // Set the render function
     // Param: std::function<void(GLFWwindow*)> render
     virtual void setRender (std::function<void(GLFWwindow*)>);
+    // Set a glfw hint, just easier :)
+    // Param: hint, value
+    void setHint (int,int);
+    // Set a glfw window attribute
+    // Param: window, hint, val
+    void setAttribute (GLFWwindow*,int,int);
     // Create the window
     // Param: title
     virtual void createWindow ();
+    // Hide the window
+    void hide ();
+    // Show the window
+    void show ();
     // Destroy the window
     void destroyWindow ();
 };

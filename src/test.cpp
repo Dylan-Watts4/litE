@@ -17,6 +17,8 @@ int main () {
     Windowed window(600,600,"Test");
     // You can set hints this way!
     glfwSetWindowCloseCallback(window.getWindow(), close_callback);
+    // Set a window attribute (Maybe make this into a function)
+    window.setAttribute(window.getWindow(), GLFW_RESIZABLE, GLFW_FALSE);
     std::function<void(GLFWwindow*)> r = render;
     window.setRender(r);
     window.createWindow();

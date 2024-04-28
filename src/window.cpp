@@ -17,6 +17,23 @@ void Window::destroyWindow () {
     glfwDestroyWindow(window);
 }
 
+// These are just some wrappers for my memory's sake
+void Window::setHint (int hint, int val) {
+    glfwWindowHint(hint, val);
+}
+
+void Window::setAttribute (GLFWwindow* window, int hint, int value) {
+    glfwSetWindowAttrib(window, hint, value);
+}
+
+void Window::hide () {
+    glfwHideWindow(window);
+}
+
+void Window::show () {
+    glfwShowWindow(window);
+}
+
 void Window::setResolution () {}
 int Window::getWidth () {return 1;}
 int Window::getHeight () {return 1;}
