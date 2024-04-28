@@ -32,7 +32,10 @@ protected:
     // Load GLAD
     void loadGLAD ();
 public:
+    // Constructor for Window
     Window ();
+    // Get the GLFWwindow*
+    virtual GLFWwindow* getWindow ();
     // Set the width and height
     // Param: width, height
     virtual void setResolution ();

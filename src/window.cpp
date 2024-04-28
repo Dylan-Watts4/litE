@@ -9,6 +9,10 @@
 
 Window::Window () {}
 
+GLFWwindow* Window::getWindow () {
+    return window;
+}
+
 void Window::destroyWindow () {
     glfwDestroyWindow(window);
 }
